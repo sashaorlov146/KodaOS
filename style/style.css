@@ -1,0 +1,831 @@
+:root {
+    --system-font: Arial;
+}
+
+
+:root {
+    -webkit-touch-callout: none;      
+    -webkit-user-select: none;        
+    -khtml-user-select: none;         
+    -moz-user-select: none;           
+    -ms-user-select: none;            
+    user-select: none;                
+}
+
+html, body {
+    width: 100%;
+    height: 100%;              
+    position: fixed;                  
+    touch-action: none;               
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;             
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    touch-action: auto;               
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+body {
+    background: #123456;
+    font-family: var(--system-font);
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 200;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bar {
+    width: 100%;
+    height: 40px;
+    z-index: 9999;
+    position: fixed;
+    position: absolute;
+    top: 740px;
+    left: 0;
+    background: #00000044;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+}
+
+.bar img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border: 1px solid #3a3a3a;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.bar img:hover {
+    opacity: 1;
+}
+
+.bar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 2px 8px;
+    font-weight: 900;
+    transition: color 0.2s;
+}
+
+.bar a:hover {
+    color: #ff00f7;
+}
+
+#clock {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    user-select: none;
+    pointer-events: none;
+}
+
+.info, .text, .seti, .code, .system, .inst, .app, .os, .pp, .textcode, .installer-box {
+    position: absolute;
+    background: #00000060;
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.85);
+    display: flex;
+    top: 150px;
+    left: 30px;
+    flex-direction: column;
+    width: 90%;
+    height: 60vh;
+    min-width: 270px;
+    min-height: 150px;
+    z-index: 1000;
+    resize: both;
+    cursor: grab;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.info, .text, .seti, .code, .system, .host, .inst, .app, .os, .pp, .textcode, .pi, .installer-box {
+    border-color: rgba(255, 0, 247, 0.23);
+}
+
+.info:active, .text:active, .code:active, .system:active, .app:active, .textcode:active, .pi:active, .installer-box:active {
+    cursor: grabbing;
+}
+
+h1 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.23);
+    color: #ffffff;
+    text-align: center;
+    user-select: none;
+    flex-shrink: 0;
+    letter-spacing: 1px;
+}
+
+h1 { 
+    font-size: 15px; }
+.sm h1 { font-size: 14px; }
+
+h1 a {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transform: translateY(-50%);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sm {
+    position: absolute;
+    right: 10px;
+    bottom: 50px; 
+    background: transparent;
+    backdrop-filter: var(--glass-blur);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    width: 420px; 
+    height: 80px; 
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9) translateY(10px);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.sm.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.pp p, .pp section {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#openPlayer {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+textarea, input, button {
+    font-size: 14px;
+    font-family: inherit;
+}
+.desktop {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 15px;
+    padding: 20px;
+    justify-items: center;
+    align-content: start;
+    height: calc(100vh - 40px);
+}
+
+.desktop a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    width: 85px;
+}
+
+.desktop img {
+    width: 74px;
+    height: 74px;
+    background: var(--icon-bg);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    transition: transform 0.2s ease;
+}
+
+
+.desktop span {
+    color: #ffffff;
+    font-size: 11px;
+    text-align: center;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    word-break: break-word;
+}
+textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 15px;
+    box-sizing: border-box;
+    background: transparent;
+    resize: none;
+    color: var(--text-main);
+    font-family: inherit;
+}
+#pysk {
+    display: none; 
+    position: absolute;
+    width: 350px;
+    height: 500px;
+    bottom: 50px;
+    left: 10px;
+    background: rgba(15, 14, 19, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 999;
+    overflow-y: auto;
+    scrollbar-width: none; 
+}
+
+#pysk::-webkit-scrollbar {
+    width: 4px;
+}
+
+#pysk::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+}
+
+#pysk:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#pysk.active {
+    display: block; 
+}
+
+#pysk a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+#pysk a:hover {
+    background:rgba(255, 255, 255, 0.1);
+}
+#pysk h1 {
+    text-align: justify;
+    background: transparent;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+  }
+  
+  #pysk img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+  }
+  
+
+.code textarea {
+    font-family: 'Cascadia Code', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    opacity: 0.95;
+    background: rgba(0, 0, 0, 0.2); 
+    backdrop-filter: blur(10px);
+}
+
+.settings-box {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.settings-box p {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #ccc;
+}
+
+.settings-box input {
+    background: var(--input-bg);
+    border: 1px solid #444;
+    color: var(--text-main);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.settings-box button, .reset-btn {
+    background: var(--btn-bg);
+    border: 1px solid #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.reset-btn {
+    color: #ff4444;
+    border-color: #442222;
+}
+
+.reset-btn:hover {
+    background: #331111;
+}
+.cllk {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.cllk a {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    color: #ffffff;
+    background: var(--glass-bg);
+    text-decoration: none;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border-soft);
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
+}
+
+.cllk a:hover {
+    background: var(--border-soft);
+    color: var(--accent-color);
+}
+
+.sosseti {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(63, 63, 63, 0.14);
+    border-radius: 20px;
+    position: relative;
+    height: 650px;
+}
+
+.appp > div, 
+.sosseti > div {
+    display: flex;
+    flex-wrap: wrap;
+padding: 60px 30px;
+}
+
+.appp a, 
+.sosseti a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    width: 100px;
+}
+
+.appp img, 
+.sosseti img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1px;
+    margin-bottom: 6px;
+    transition: all 0.3s ease;
+}
+
+.appp span, 
+.sosseti span {
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.appp img:hover, 
+.sosseti img:hover {
+    width: 53px;
+    height: 53px;
+}
+
+.info {
+    position: relative;
+    padding: 10px;
+}
+
+.info p {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.text p {
+    font-size: 14px;
+}
+.paint-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background: var(--glass-bg);
+    border-radius: 10px;
+}
+
+.color-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 10%;
+    cursor: pointer;
+    border: 2px solid var(--border-soft);
+    transition: transform 0.2s;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+}
+
+.action-btn {
+    padding: 5px 10px;
+    background: var(--glass-bg);
+    border: 1px solid var(--border-soft);
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#kodaCanvas {
+    cursor: crosshair;
+    border: 1px solid #333;
+    display: block;
+    width: 100%;
+    height: 900px;
+    background: rgba(0, 0, 0, 0.06);
+    touch-action: none;
+}
+
+input[type="range"] {
+    cursor: pointer;
+    accent-color: var(--accent-main);
+}
+
+.menu {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.menu span {
+    font-size: 13px;
+}
+
+#file-input {
+    width: 94%;
+    margin: 10px auto;
+    padding: 10px;
+    background: var(--input-bg);
+    border: 1px solid #333;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 11px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.installer-box button {
+    width: 94%;
+    margin: 8px auto;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.17);
+    color: #ffffff;
+    border: 1px solid #333;
+    border-radius: 30px;
+    font-size: 10px;
+    text-transform: uppercase;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.installer-box button:hover {
+    opacity: 0.8;
+}
+
+#add-btn {
+    border-color: var(--accent-alt);
+}
+
+#del-all {
+    border-color: var(--error-color);
+}
+
+.log {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 93%;
+}
+
+.log textarea {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-soft);
+    color: #ffffff;
+    font-size: 10px;
+    height: 50px;
+    resize: none;
+    padding: 5px;
+}
+
+.box {
+    display: flex;
+    gap: 5px;
+}
+
+.box button {
+    flex: 1;
+    background: #333;
+    color: #ffffff;
+    border: none;
+    font-size: 9px;
+    padding: 5px;
+    cursor: pointer;
+    height: 30px;
+    transition: background 0.2s;
+}
+
+.box button:hover {
+    background: #444;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sb-thumb) var(--sb-bg);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb);
+    border-radius: 10px;
+    border: 2px solid var(--sb-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-accent);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--sb-bg);
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+@media screen and (max-width: 496px) {
+   .bar {
+    top: 705px;
+    position: absolute;
+   }
+    .bar a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 2px 8px;
+        font-weight: 900;
+    }
+    
+    .bar a:hover {
+        color: #ff00f7;
+    }
+
+    #clock {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        z-index: 1000;
+        text-align: center;
+        font-size: 19px;
+        font-weight: bold;
+        color: #ffffff;
+        padding: 8px 0;
+        line-height: 1.1;
+        text-transform: uppercase;
+        -webkit-user-select: none;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .info, .text, .seti, .code, .system, .host, .inst, .app, .os, .pp, .textcode, .pi, .installer-box {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top: 5px;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        border: none;
+        box-sizing: border-box;
+        box-shadow: none;
+        resize: none;
+        overflow-y: auto;
+    }
+    .desktop {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        padding: 480px 0px;
+        justify-items: center;
+    }
+    
+    .sosseti {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #3f3f3f23;
+        border-radius: 20px;
+        position: relative;
+        height: 100%;
+    }
+    .seti iframe, .seti  {
+        width: 100%;
+        border-radius: 1px;
+    }
+    .appp > div, .sosseti > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 5px 30px;
+    }
+    .appp img, .sosseti img {
+        width: 100px;
+        height: 100px;
+        background: #ffffff80;
+        backdrop-filter: blur(80px);
+        border-radius: 19px;
+        margin-bottom: 5px;
+        border: 1px solid #313131;
+    }
+
+    .close-btn, .exit-button, .appp span, .sosseti span, .sm {
+        display: none !important;
+    }
+
+    h1 , h1 a {
+        font-size: 13px;
+    }
+    .paint-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 10px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+    }
+    
+    .color-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .color-btn:active {
+        transform: scale(0.9);
+    }
+    
+    .action-btn {
+        padding: 12px 18px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 8px;
+        font-size: 14px;
+        flex-grow: 1;
+        text-align: center;
+    }
+    
+    #kodaCanvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #333;
+        background: #0000000f;
+        touch-action: none;
+    }
+    
+    input[type="range"] {
+        width: 100%;
+        margin: 10px 0;
+        accent-color: #ff3b30;
+    }
+    
+    .paint-menu {
+        gap: 10px;
+        padding: 10px;
+    }
+    #openPlayer a {
+        display: non;
+    }
+    #pysk {
+        left: 1px;
+        top: 160px;
+        position: absolute;
+    }
+    }

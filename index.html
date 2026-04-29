@@ -1,0 +1,33 @@
+                      <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodaOS</title>
+    <link rel="stylesheet" href="style/log.css">
+    <link rel="shortcut icon" href="icon/icon.jpg" type="image/x-icon">
+    <link rel="manifest" href="json/manifest.json">
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6eb7904aebe742a193e233ff5fa7af19"}'></script>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('js/sw.js');
+      }
+    </script>
+</head>
+<body>
+    <div class="bar">
+        <div id="clock"></div>
+        <div class="log">
+            <img src="icon/icon.jpg" alt="Logo">
+        </div>
+    </div>
+
+    <script src="js/core.js"></script>
+    <script>
+         setTimeout(() => {
+    window.location.href = "os.html";
+}, 3000); 
+    </script>
+    <script src="js/sw.js"></script>
+</body>
+</html>

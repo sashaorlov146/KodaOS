@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodaOS</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../icon/icon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="bar">
+        <div id="clock">00:00:00</div>
+    </div>
+
+    <div class="system">
+        <h1>Об этом устройстве<a href="../os.html" style="text-decoration: none; font-size: 14px;">[X]</a></h1>
+        
+        <div class="cllk">
+            <a href="system.html">Выйти</a>
+        </div>
+
+        <div class="settings-box">
+            <div id="win-specs" style="color: #fff;">
+                <h2 style="font-weight: 300; font-size: 20px; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                    Характеристики устройства
+                </h2>
+                <div id="specs-container"></div>
+            </div>
+        </div>
+
+        <div class="cllk" style="margin-top: 20px;">
+            <button class="reset-btn" onclick="if(confirm('Вы уверены?')) { localStorage.clear(); indexedDB.deleteDatabase('MusicDB'); location.reload(); }">
+                СБРОС СИСТЕМЫ
+            </button>
+        </div>
+    </div>
+    <script>
+       (() => {
+    const getDeviceType = () => {
+        const ua = navigator.userAgent.toLowerCase();
+        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) return "Планшет";
+        if (/mobile|android|ip(hone|od)|iemobile|blackberry|kindle|silk-accelerated/i.test(ua)) return "Смартфон";
+        return "Персональный компьютер";
+    };
+
+    const getGPU = () => {
+        const gl = document.createElement('canvas').getContext('webgl');
+        if (!gl) return "Стандартный ускоритель";
+        const debug = gl.getExtension('WEBGL_debug_renderer_info');
+        return debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL).split(' ').pop() : "Интегрированная";
+    };
+
+    const specs = {
+        "Устройство": `Koda-Zuckerberg-${Math.floor(Math.random() * 900 + 100)}`,
+        "Тип системы": getDeviceType(),
+        "Процессор": `${navigator.hardwareConcurrency || 4}-ядерный чип`,
+        "Память": `${navigator.deviceMemory || 8} ГБ ОЗУ`,
+        "Версия": "KodaOS 09.26 Zuckerberg",
+        "Ядро": "Koda v5.0",
+        "Экран": `${window.screen.width} x ${window.screen.height}`,
+        "Графика": getGPU(),
+        "Локация": navigator.language.toUpperCase(),
+        "Сборка": "09.09.26",
+        "Статус": "Лицензия активна",
+        "Доступ": "Root-права"
+    };
+
+    const container = document.getElementById('specs-container');
+    if (!container) return;
+
+    const fragment = document.createDocumentFragment();
+
+    Object.entries(specs).forEach(([key, value]) => {
+        const row = document.createElement('div');
+        row.style.cssText = 'display: flex; margin-bottom: 12px; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;';
+
+        const label = document.createElement('div');
+        label.style.cssText = 'width: 150px; color: rgba(255,255,255,0.5);';
+        label.textContent = key;
+
+        const val = document.createElement('div');
+        val.style.cssText = 'color: #fff; font-weight: 500;';
+        val.textContent = value;
+
+        row.append(label, val);
+        fragment.appendChild(row);
+    });
+
+    container.replaceChildren(fragment);
+})();
+    </script>
+    <script src="../js/core.js"></script>
+</body>
+</html>

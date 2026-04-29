@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Audio.net</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="audio">
+    <div class="main-wrapper">
+        <div class="player-container">
+            <div class="cover-wrapper">
+                <img id="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Обложка">
+                <div id="lyrics-overlay">
+                    <p id="current-lyric"></p>
+                </div>
+            </div>
+            
+            <div class="info">
+                <h1 id="title">Загрузи трек</h1>
+                <p id="artist">Нажми на плюс ниже</p>
+            </div>
+    
+            <audio id="player" controls></audio>
+            
+            <div class="upload-section">
+                <input type="file" id="upload" accept="audio/*" hidden>
+                <label for="upload" class="upload-btn" title="Добавить музыку">+</label>
+            </div>
+        </div>
+    </div>
+    <div id="playlist-side-display">
+        <div class="playlist-header">
+        </div>
+        <div class="filter-group">
+            <button class="filter-btn active" id="f-all" onclick="setFilter('all'); updateFilterUI('f-all')">Все</button>
+            <button class="filter-btn" id="f-fav" onclick="setFilter('favorite'); updateFilterUI('f-fav')">Любимые ♡</button>
+        </div>
+        <div id="tracks-list"></div>
+    </div>
+    </div>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3>Новый трек</h3>
+            <div class="input-group">
+                <input type="file" id="track-cover-input" accept="image/*">
+                <input type="file" id="edit-cover-input" style="display:none" accept="image/*">
+                <input type="text" id="track-title" placeholder="Название трека">
+                <input type="text" id="track-artist" placeholder="Исполнитель">
+            </div>
+            <div class="checkbox-container" style="display: flex; flex-direction: column; gap: 8px; margin: 10px 0;">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="track-explicit">
+                    <label for="track-explicit">Explicit [E]</label>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="save-track">Сохранить</button>
+                <button onclick="document.getElementById('modal').style.display='none'" class="cancel-btn">Отмена</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodaOS</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../icon/icon.jpg" type="image/x-icon">
+</head>
+  <body>
+    <div class="bar">
+
+      <div id="clock">00:00:00</div>
+    </div>
+    <div class="seti">
+      <h1>Koda Bash64<a href="../os.html">[X]</a></h1>
+      <div class="log">
+        <textarea id="in" placeholder="ТЕКСТ..."></textarea>
+        <textarea id="out" readonly placeholder="КОД..."></textarea>
+        <div class="box">
+          <button onclick="en()">СОБРАТЬ</button>
+          <button onclick="de()">ПОЛУЧИТ</button>
+      </div>
+    </div>
+  </div>
+  
+    <script src="../js/core.js"></script>
+    <script>
+        const i = document.getElementById('in');
+const o = document.getElementById('out');
+
+function en() { 
+    try { o.value = btoa(unescape(encodeURIComponent(i.value))); } 
+    catch(e) { o.value = "Error"; }
+}
+
+function de() { 
+    try { o.value = decodeURIComponent(escape(atob(i.value))); } 
+    catch(e) { o.value = "Error"; }
+}
+    </script>
+  </body>
+</html>

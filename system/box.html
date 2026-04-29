@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodaOS</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../icon/icon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="bar">
+        <div id="clock">00:00:00</div>
+    </div>
+    <div class="system">
+        <h1>Внешний вид<a href="../os.html">[X]</a></h1>
+        <div class="cllk">
+            <a href="system.html">Выйти</a>
+            <div class="settings-box">
+                <p>Обои рабочего стола: <input type="file" id="set-wp" accept="image/*"></p>
+                <p>Фон системы: <input type="text" id="set-bg" placeholder="#000000"></p>
+                <p>Цвет интерфейса: <input type="text" id="set-win" placeholder="#111111"></p>
+                <p>Цвет шрифта: <input type="text" id="set-txt" placeholder="#ffffff"></p>
+                <p>Цвет панели управления: <input type="text" id="set-bar" placeholder="#ff3366"></p>
+                <button onclick="Kernel.syscall('APPLY_SETTINGS')">ПРИМЕНИТЬ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/core.js"></script>
+    <script src="../js/dook.js"></script>
+</body>
+</html>

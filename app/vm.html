@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodaOS - VM</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../icon/icon.jpg" type="image/x-icon">
+    <style>
+        .vm-container { display: flex; flex: 1; gap: 10px; margin-top: 10px; }
+        iframe { flex: 1; height: 100%; border: 1px solid rgba(255, 0, 255, 0.3); border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="bar">
+        <div id="clock">00:00:00</div>
+    </div>
+    <div class="seti">
+          <h1>VmKoda <a href="../os.html">[X]</a></h1>
+            
+        <div class="vm-container">
+            <iframe src="../os.html"></iframe>
+            <iframe src="../os.html"></iframe>
+        </div>
+    </div>
+    <script src="../js/core.js"></script>
+</body>
+</html>
